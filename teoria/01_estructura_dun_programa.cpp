@@ -11,6 +11,7 @@
 // A todo lo que empieza con # se le llama 'directivas del preprocesador'
 
 #include <iostream> // La librería del lenguaje donde están las funciones que vamos a usar en el programa
+#include <stdio.h>
 
 // También se le pueden definir constantes al preprocesador (#define nombre valor):
 #define PI 3.1416
@@ -31,20 +32,24 @@ using namespace std;
 
 int main()
 {
-  int a = 3,
-      b = 2,
+  int a = 15,
+      b = -3,
       resultat = 0;
 
   resultat = a + b;
-  cout << resultat << endl;
+  printf("La suma de %d i %d es %d\n", a, b, resultat);
+  
   resultat = a - b;
-  cout << resultat << endl;
+  printf("La resta de %d i %d es %d\n", a, b, resultat);
+  
   resultat = a * b;
-  cout << resultat << endl;
+  printf("La multiplicacion de %d i %d es %d\n", a, b, resultat);
+  
   resultat = a / b;
-  cout << resultat << endl;
+  printf("La division de %d i %d es %d\n", a, b, resultat);
+
   resultat = a % b;
-  cout << resultat << endl;
+  printf("El modulo/resto de %d i %d es %d\n", a, b, resultat);
 
   cout << "otra cosa: " << endl;
 
@@ -127,4 +132,19 @@ int main()
 
         Para el próximo día:
         declarar dos enteros (o 3 si queremos guardar el resultado) y aplicar todas las operaciones aritméticas con ellos.
+*/
+
+
+/*
+Para mostrar cosas por pantalla utilizaremos la función printf
+Para usar esta función necesitaremos incluir la libreria stdio.h
+
+el input estándard es el teclado
+el output estándard es la pantalla
+
+para usar el printf:
+
+sin variables: printf("mensaje");
+con variables: printf("El valor es %d", valor);
+
 */
