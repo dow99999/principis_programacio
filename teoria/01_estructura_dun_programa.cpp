@@ -36,10 +36,15 @@ int main()
       resultat = 0;
 
   resultat = a + b;
+  cout << resultat << endl;
   resultat = a - b;
+  cout << resultat << endl;
   resultat = a * b;
+  cout << resultat << endl;
   resultat = a / b;
+  cout << resultat << endl;
   resultat = a % b;
+  cout << resultat << endl;
 
   cout << "otra cosa: " << endl;
 
@@ -120,6 +125,6 @@ int main()
         el segundo primero devuelve el valor y luego suma 1
 
 
-        Para el proximo dia:
+        Para el próximo día:
         declarar dos enteros (o 3 si queremos guardar el resultado) y aplicar todas las operaciones aritméticas con ellos.
 */
