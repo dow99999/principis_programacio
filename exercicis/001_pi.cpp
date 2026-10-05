@@ -1,20 +1,33 @@
+/**
+ * Un programa que dada una base y una altura calcule el area de:
+ *    triangulo-rectángulo
+ *    un rectangulo
+ * Y tambien el perimetro de un rectángulo
+ */
+
+/**
+ * Autor: Diego
+ */
+
+// Para usar printf
 #include <stdio.h>
-
-#define PI 3.1416
-
-float radio;
-float longitud;
 
 int main()
 {
-  radio = 2;
-  longitud = 10;
+  float
+      base   = 5,
+      altura = 2;
 
-  longitud = 0;
+  printf("\n");
+  printf("+ Datos ---------------------------------\n");
+  printf("| base: %.2f\n| altura: %.2f\n", base, altura);
+  printf("+----------------------------------------\n\n");
+
+  printf("+ Resultados ----------------------------\n");
+  printf("| Area de un triangulo-rectangulo: %.2f\n", base * altura / 2);
+  printf("| Area de un rectangulo: %.2f\n", base * altura);
+  printf("| Perimetro de un rectangulo: %.2f\n", base * 2 + altura * 2);
+  printf("+----------------------------------------\n\n");
+
+  return 0;
 }
-/**
- * Un programa que dada una base y una altura calcule el area de: 
- *    triangulo-rectángulo
- *    un rectangulo
- * Y por otro lado el perimetro de un rectángulo
- */
