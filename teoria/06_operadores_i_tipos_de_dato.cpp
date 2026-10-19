@@ -57,5 +57,4 @@ int main()
   * Algunos caracteres de escape:
   * \n: salto de linea
   * \b: retroceso
-  * \n z
   */
