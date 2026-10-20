@@ -20,9 +20,9 @@ int main()
   printf("Entra otro numero entero: ");
   scanf("%d", &num2);
 
-  if(num1 % num2 == 0) {
-    printf("%d es divisible por %d", num1, num2);
-  }
+  printf("%d ", num1);
+  if(num1 % num2 != 0) printf("no ");
+  printf("es divisible por %d", num2);
 
   return 0;
 }

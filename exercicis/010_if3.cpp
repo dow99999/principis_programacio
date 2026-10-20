@@ -22,6 +22,8 @@ int main()
       printf(", ademas, es multiplo de 3");
     }
     printf("\n");
+  } else {
+    printf("El numero es impar");
   }
 
   return 0;
