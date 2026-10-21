@@ -62,7 +62,7 @@ int main()
 
 
   // el discriminante dentro de la formula de la equacion de segundo grado
-  int discriminante = 0;
+  double discriminante = 0;
 
   // valor real de la primera solucion
   double sol1 = 0;
@@ -176,7 +176,15 @@ int main()
 
         // la parte imaginaria solo con el discriminante (dividiendo por 2a)
         sol1i = discriminante / (2.0 * a);
-        sol2i = (-discriminante) / (2.0 * a);
+        if(sol1i < 0)
+        {
+          sol2i = sol1i;
+          sol1i = -sol2i;
+        } else
+        {
+          sol2i = -sol1i;
+        }
+        
       }
       
     }
