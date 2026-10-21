@@ -20,9 +20,9 @@
  */
 
 // Libreria necesaria para usar las funciones scanf y printf.
-#include <stdio.h>
+#include <cstdio>
 // Libreria necesaria para usar la funcion sqrt.
-#include <math.h>
+#include <cmath>
 
 
 // Definicion de estados segun el tipo de solucion de la equacion entrada:
@@ -176,6 +176,9 @@ int main()
 
         // la parte imaginaria solo con el discriminante (dividiendo por 2a)
         sol1i = discriminante / (2.0 * a);
+
+        // Calculamos la segunda solucion teniendo en cuenta que la primera solucion
+        //   debe ser la que tiene su parte imaginaria positiva
         if(sol1i < 0)
         {
           sol2i = sol1i;
@@ -220,6 +223,8 @@ int main()
       break;
       
     case DOS_SOLUCIONES_COMPLEJAS:
+
+      // Separamos el signo del valor de la parte imaginaria
       if(sol1i < 0)
       {
         operador_i1 = '-';
