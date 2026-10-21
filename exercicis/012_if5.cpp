@@ -16,8 +16,8 @@ int main()
   const short int PRECIO_ENTRADA  = 7;
   const short int DESC_MIN_EDAD   = 5;
   const short int DESC_MAX_EDAD   = 60;
-  const float     DESC_MIN_PORC   = 0.6;
-  const float     DESC_MAX_PORC   = 0.55;
+      const float DESC_MIN_PORC   = 0.6;
+      const float DESC_MAX_PORC   = 0.55;
 
   unsigned short int edad = 0;
   
@@ -29,10 +29,12 @@ int main()
   printf("Entra la edad de la persona: ");
   scanf("%hu", &edad);
 
-  if(edad < DESC_MIN_EDAD) {
+  if(edad < DESC_MIN_EDAD)
+  {
     descuento = DESC_MIN_PORC;
 
-  } else if (edad > DESC_MAX_EDAD) {
+  } else if (edad > DESC_MAX_EDAD) 
+  {
     descuento = DESC_MAX_PORC;
 
   }
