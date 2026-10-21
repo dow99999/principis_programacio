@@ -67,26 +67,19 @@ int main(int argc, char* argv[])
             }
         } else
         {
-            int _consume_values = consume_values;
-            for(int j = 0; j < _consume_values && (i + j) < argc; j++)
-            {
-                valores.push_back(atoi(argv[i + j]));
-                consume_values--;
-            }
-            
-            if((i + _consume_values - 1) >= argc)
-            {
-                printf("ERROR: falta pasar parametros para las instrucciones definidas");
-                return -1;
-            }
-            
-            i += consume_values;
+            valores.push_back(atoi(argv[i]));
+            consume_values--;
         }
     }
 
     if(instrucciones.empty()) {
         print_help();
         return 0;
+    }
+
+    if(consume_values > 0) {
+        printf("ERROR: falta pasar parametros para las instrucciones definidas");
+        return -1;
     }
 
     while(instrucciones.size() > 0)
