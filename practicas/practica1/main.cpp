@@ -14,6 +14,7 @@
  * Autor: Diego Muñoz Jorquera
  */
 
+
 /******************************************************************************************
  * BLOQUE 0: directivas del preprocesador
  */
@@ -23,7 +24,9 @@
 // Libreria necesaria para usar la funcion sqrt.
 #include <math.h>
 
+
 // Definicion de estados segun el tipo de solucion de la equacion entrada:
+
 #define               CALCULANDO 0
 #define             UNA_SOLUCION 1
 #define       UNA_SOLUCION_DOBLE 2
@@ -32,12 +35,14 @@
 #define            INFINITAS_SOL 5
 #define           SIN_SOLUCIONES 6
 
+
+// Usado para hacer pruebas rapidas
+// Definicion de un flag para mostrar mas o menos informacion por pantalla
+#define                  VERBOSE false
+
 /**
  * FIN DEL BLOQUE 0
  ******************************************************************************************/
-
-
-
 
 
 int main()
@@ -46,49 +51,68 @@ int main()
    * BLOQUE 1: Definicion de variables
    */
   
+  // el valor del coeficiente a de la equacion de segundo grado
   int a = 0;
+  
+  // el valor del coeficiente b de la equacion de segundo grado
   int b = 0;
+
+  // el valor del coeficiente c de la equacion de segundo grado
   int c = 0;
+
+
+  // el discriminante dentro de la formula de la equacion de segundo grado
   int discriminante = 0;
+
+  // valor real de la primera solucion
   double sol1 = 0;
+
+  // valor real de la segunda solucion
   double sol2 = 0;
+  
+  // parte imaginaria de la primera solucion
   double sol1i = 0;
+  
+  // parte imaginaria de la segunda solucion
   double sol2i = 0;
   
+  
+  // operador separador de la parte real e imaginaria de la primera solucion
+  char operador_i1 = '+';
+  
+  // operador separador de la parte real e imaginaria de la segunda solucion
+  char operador_i2 = '+';
+  
+  
+  // el tipo de solucion para la equacion entrada por el usuario
   unsigned char tipo_de_solucion = CALCULANDO;
 
   /**
    * FIN DEL BLOQUE 1
    ******************************************************************************************/
   
-  
-  
-  
-  
-  
-  
+
   /******************************************************************************************
    * BLOQUE 2: explicacion del programa y solicitud de datos
    */
   
-  printf("+-----------------------------------------------------------------------\n");
-  printf("| Este programa calcula las soluciones de una equacion de segundo grado.\n");
-  printf("|   ax^2 + b^x + c = 0\n");
-  printf("+-----------------------------------------------------------------------\n");
-  printf("\n");
-  printf("Entra el valor de a: ");
+  if(VERBOSE) printf("+-----------------------------------------------------------------------\n");
+  if(VERBOSE) printf("| Este programa calcula las soluciones de una equacion de segundo grado.\n");
+  if(VERBOSE) printf("|   ax^2 + b^x + c = 0\n");
+  if(VERBOSE) printf("+-----------------------------------------------------------------------\n");
+  if(VERBOSE) printf("\n");
+  if(VERBOSE) printf("Entra el valor de a: ");
   scanf("%d", &a);
-  printf("Entra el valor de b: ");
+  if(VERBOSE) printf("Entra el valor de b: ");
   scanf("%d", &b);
-  printf("Entra el valor de c: ");
+  if(VERBOSE) printf("Entra el valor de c: ");
   scanf("%d", &c);
   
   /**
    * FIN DEL BLOQUE 2
    ******************************************************************************************/
   
-  
-  
+
   /******************************************************************************************
    * BLOQUE 3: analisis del tipo de solucion i calculo del resultado
    */
@@ -97,9 +121,13 @@ int main()
   { 
     if(b != 0)                                    // La equacion es de primer grado
     {
-      // cast a double para realizar la division correctamente
-      sol1 = -(double)c / b;
       tipo_de_solucion = UNA_SOLUCION;
+
+      // cast a double para realizar la division correctamente
+      sol1 = (-c) / ((double)b);
+      
+      // limpieza de posibles -0.0
+      if(sol1 == 0) sol1 = 0;
       
     } else
     {
@@ -116,10 +144,11 @@ int main()
   }
   else                                          // La equacion es de segundo grado
   {
-    discriminante = b * b - 4 * a * c;
+    discriminante = (b * b) - (4 * a * c);
     
     if(discriminante > 0) {                        // La equacion tiene dos soluciones
       tipo_de_solucion = DOS_SOLUCIONES;
+      
       discriminante = sqrt(discriminante);
 
       sol1 = (-b + discriminante) / (2.0 * a);
@@ -131,8 +160,8 @@ int main()
       {
         tipo_de_solucion = UNA_SOLUCION_DOBLE;
         
-        sol1 = -b / 2.0 * a;
-        sol2 = sol1;
+        sol1 = (-b) / (2.0 * a);
+        sol2 = sol1;  // No hace falta, pero hacemos explicito que tiene dos soluciones con el mismo valor
         
       }
       else                                         // La equacion solo tiene soluciones complejas
@@ -140,38 +169,65 @@ int main()
         tipo_de_solucion = DOS_SOLUCIONES_COMPLEJAS;
         
         discriminante = sqrt(-discriminante);
-        sol1 = -b / 2.0 * a;
+        
+        // la parte real sin el discriminante (dividiendo por 2a)
+        sol1 = (-b) / (2.0 * a);
         sol2 = sol1;
-        sol1i = discriminante / 2.0 * a;
-        sol2i = (-discriminante) / 2.0 * a;
 
+        // la parte imaginaria solo con el discriminante (dividiendo por 2a)
+        sol1i = discriminante / (2.0 * a);
+        sol2i = (-discriminante) / (2.0 * a);
       }
       
     }
-  }
 
-  /**
-   * FIN DEL BLOQUE 2
-   ******************************************************************************************/
+    // Limpieza de posibles -0.0
+    if(sol1 == 0) sol1 = 0;
+    if(sol2 == 0) sol2 = 0;
+  }
   
-  printf("\n");
+  /**
+   * FIN DEL BLOQUE 3
+   ******************************************************************************************/
+
+  
+  /******************************************************************************************
+   * BLOQUE 4: mostrar resultados finales al usuario
+   */
+  
+  if(VERBOSE) printf("\n");
 
   switch(tipo_de_solucion)
   {
     case UNA_SOLUCION:
-      printf("Ecuacion lineal. x = %.4f", sol1);
+      printf("Ecuacion lineal: x = %.4f", sol1);
       break;
       
     case UNA_SOLUCION_DOBLE:
-      printf("Una solucion doble. x = %.4f", sol1);
+      printf("Una solucion doble: x = %.4f", sol1);
       break;
       
     case DOS_SOLUCIONES:
-      printf("Dos soluciones reales. x1 = %.4f, x2 = %.4f", sol1, sol2);
+      printf("Dos soluciones reales: x1 = %.4f, x2 = %.4f", sol1, sol2);
       break;
       
     case DOS_SOLUCIONES_COMPLEJAS:
-      printf("Complejas. x1 = %.4f + %.4fi, x2 = %.4f + %.4fi", sol1, sol1i, sol2, sol2i);
+      if(sol1i < 0)
+      {
+        operador_i1 = '-';
+        sol1i *= -1;
+      }
+
+      if(sol2i < 0)
+      {
+        operador_i2 = '-';
+        sol2i *= -1;
+      }
+
+      printf("Complejas: x1 = %.4f %c %.4fi, x2 = %.4f %c %.4fi",
+        sol1, operador_i1, sol1i,
+        sol2, operador_i2, sol2i
+      );
       break;
     
     case INFINITAS_SOL:
@@ -179,16 +235,21 @@ int main()
       break;
       
     case SIN_SOLUCIONES:
-      printf("Sin solución");
+      printf("Sin solucion");
       break;
     
     // No deberia entrar nunca ya que siempre se acaba dando uno de los estados anteriores
     default:
-    printf("Error");
+      printf("Error");
 
   }
-
-  printf("\n");
   
+  if(VERBOSE) printf("\n");
+
+  /**
+   * FIN DEL BLOQUE 4
+   ******************************************************************************************/
+
+
   return 0;
 }
