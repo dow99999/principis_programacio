@@ -34,7 +34,7 @@ int main()
     break;
   }
 
-  if(caracter == 'a' || caracter == 'A')
+  if(caracter == 'a' || caracter == 'A') // faltan las otras vocales
   {
     vocal = true;
   }

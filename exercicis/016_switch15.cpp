@@ -6,6 +6,10 @@
  *   debe imprimir: "este no es un número de una carta de la baraja española".
  */
 
+/**
+ * Autor: Diego Muñoz Jorquera
+ */
+
 #include <stdio.h>
 
 int main()

@@ -3,6 +3,10 @@
  *   y muestre un mensaje con el nombre del día correspondiente.
  */
 
+/**
+ * Autor: Diego Muñoz Jorquera
+ */
+
 #include <stdio.h>
 
 int main()
@@ -35,6 +39,8 @@ int main()
     case 7:
       printf("Domingo");
     break;
+    default:
+    printf("No es un dia de la semana");
   }
 
   return 0;

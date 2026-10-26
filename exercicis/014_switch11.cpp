@@ -4,6 +4,10 @@
  *   utilizando la sentencia if ¿Qué opción es mejor?
  */
 
+/**
+ * Autor: Diego Muñoz Jorquera
+ */
+
 #include <stdio.h>
 
 int main()

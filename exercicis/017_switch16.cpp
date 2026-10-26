@@ -8,6 +8,10 @@
  *  Validar el funcionamiento del programa cuando los puntos introducidos son: A(2,1) y B(2,5).
  */
 
+/**
+ * Autor: Diego Muñoz Jorquera
+ */
+
 #include <stdio.h>
 
 int main()
