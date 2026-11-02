@@ -24,6 +24,10 @@
 // Libreria necesaria para usar la funcion sqrt.
 #include <cmath>
 
+// Librerias necesarias para utilizar las funciones pedidas en clase (esperar y acentos)
+#include <locale.h>
+#include <conio.h>
+
 
 // Definicion de estados segun el tipo de solucion de la equacion entrada:
 
@@ -38,7 +42,28 @@
 
 // Usado para hacer pruebas rapidas
 // Definicion de un flag para mostrar mas o menos informacion por pantalla
-#define                  VERBOSE false
+#define                  VERBOSE true
+
+
+/**
+ * Este procedimiento pausa el programa hasta que el usuario presione una tecla 
+ */
+void espera()
+{
+  printf("Presiona una tecla para continuar...");
+  getch();
+}
+
+/**
+ * Este procedimiento permite que se vean acentos por el terminal
+ */
+void activar_acentos()
+{
+  setlocale(LC_ALL, "");
+}
+
+
+
 
 /**
  * FIN DEL BLOQUE 0

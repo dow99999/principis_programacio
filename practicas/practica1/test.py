@@ -19,12 +19,11 @@ TESTS = [
     ["-1 3 0", "Dos soluciones reales: x1 = 0.0000, x2 = 3.0000"]
 ]
 
+ARCHIVO = "main.cpp"
+
 errores = []
 
-if len(sys.argv) <= 1:
-    print("Uso: py test.py <...archivos_a_testear.cpp>")
-
-p = Popen(["g++", *sys.argv[1:], "-Wall", "-Wextra", "-o", "test.exe"], stdin=PIPE, stdout=PIPE, stderr=PIPE, shell=True)
+p = Popen(["g++", ARCHIVO, "-Wall", "-Wextra", "-o", "test.exe"], stdin=PIPE, stdout=PIPE, stderr=PIPE, shell=True)
 output, error = p.communicate()
 
 for i in range(len(TESTS)):
