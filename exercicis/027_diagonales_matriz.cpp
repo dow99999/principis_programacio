@@ -1,13 +1,13 @@
 /**
- * Una matriz en la que el usuario entre el tamaño de forma dinamica xdddddd
+ * Una matriz en la que el usuario entre el tamaño de la matriz cuadrada
  *
- * que se rellenen todos los valores con 0 excepto la diagonal, que tendrá 1
+ * de esta, que se rellenen todos los valores con 0 excepto la diagonal
+ * principal y la diagonal secundaria, que tendrá 1
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-// que puta barbaridad la teoría en el examen...
 int main()
 {
   int **matriz;
